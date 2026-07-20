@@ -3,10 +3,12 @@ extends Control
 @onready var panel = $Panel
 @onready var action_label = $ActionLabel
 @onready var time = $Time
+@onready var sound = $AudioStreamPlayer
 
 var reaction_time = 0
 var game_start = false
 var is_game_over = false
+var permission_to_react = false
 
 func _ready():
 	action_label.text = "Press [SPACE] to start, react to signal, or restart."
@@ -26,7 +28,9 @@ func _process(delta):
 func start_game():
 	game_start = true
 	is_game_over = false
+	permission_to_react = false
 	action_label.text = "Wait for signal..."
+
 
 
 # -- Random waiting time for signal --
@@ -56,4 +60,11 @@ func change_color_to_green():
 # -- After random wait time finish --
 func _on_time_timeout():
 	change_color_to_green()
+	sound.play()
 	reaction_time = Time.get_ticks_usec()
+	permission_to_react = true
+	if permission_to_react == true and Input.is_action_pressed("ui_accept"):
+		action_label.text = "Time: " + str(reaction_time / 1000000.0)
+	elif permission_to_react == false and Input.is_action_pressed("ui_accept"):
+		action_label.text = "FALSE START >:("
+		is_game_over = true
