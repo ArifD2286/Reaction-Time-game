@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://73adjddurq77"]
+
+[ext_resource type="Script" uid="uid://cgy75lwkq3abp" path="res://Game.gd" id="1_wbfu4"]
+
+[node name="Control" type="Control" unique_id=1500166762]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wbfu4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1977216410]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=1559683260]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 40.0
+offset_right = 1080.0
+offset_bottom = 608.0
+
+[node name="GameNameLabel" type="Label" parent="." unique_id=2073909501]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 286.0
+offset_right = 691.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
+theme_override_font_sizes/font_size = 24
+text = "Reaction Test Game"
+
+[node name="ActionLabel" type="Label" parent="." unique_id=2128866796]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 320.0
+offset_right = 661.0
+offset_bottom = 343.0
+text = "Press [SPACE] to start."
+
+[node name="Time" type="Timer" parent="." unique_id=572737380]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=790093483]
+
+[connection signal="timeout" from="Time" to="." method="_on_time_timeout"]
