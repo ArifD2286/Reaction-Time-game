@@ -14,7 +14,7 @@ Made for OneKey by HackClub
 - Godot and coded in gdscript language (main language of godot)
 
 ### Demo:
-coming soon
+https://arifd2010.itch.io/reaction-time-game
 
 ### Import game on godot:
 - Dowload or clone this repo, import the game by only selecting the "reaction-time-game (godot)" folder.
