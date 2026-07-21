@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://cgy75lwkq3abp" path="res://Game.gd" id="1_wbfu4"]
 [ext_resource type="AudioStream" uid="uid://bhso57lxjstl5" path="res://dry-fart (edited).mp3" id="2_xkndl"]
 [ext_resource type="AudioStream" uid="uid://blid5mk76ly7b" path="res://anime-wow-sound-effect.mp3" id="3_sb48q"]
+[ext_resource type="AudioStream" uid="uid://ca2qhtlnmtgis" path="res://roblox-wow.mp3" id="4_joorw"]
 [ext_resource type="AudioStream" uid="uid://qn61ei1r4ol" path="res://vine-boom (1).mp3" id="4_t88pq"]
+[ext_resource type="AudioStream" uid="uid://b7x7bmyn28lcs" path="res://roblox-yay.mp3" id="5_2vekm"]
+[ext_resource type="AudioStream" uid="uid://cknmsmnqewwqn" path="res://ack.mp3" id="7_yx171"]
+[ext_resource type="AudioStream" uid="uid://c6jp28d7lccn6" path="res://roblox-cry.mp3" id="8_yhmtn"]
 
 [node name="Control" type="Control" unique_id=1500166762]
 layout_mode = 3
@@ -98,15 +102,42 @@ grow_vertical = 2
 text = "Press [SPACE] to start."
 horizontal_alignment = 1
 
+[node name="RestartLabel" type="Label" parent="." unique_id=645359088]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = 20.5
+offset_right = 91.0
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press [SPACE] to restart"
+
 [node name="Time" type="Timer" parent="." unique_id=572737380]
 
 [node name="FartSound" type="AudioStreamPlayer" parent="." unique_id=1664560495]
 stream = ExtResource("2_xkndl")
 
-[node name="WowSound" type="AudioStreamPlayer" parent="." unique_id=790093483]
+[node name="AnimeWowSound" type="AudioStreamPlayer" parent="." unique_id=790093483]
 stream = ExtResource("3_sb48q")
+
+[node name="RobloxWowSound" type="AudioStreamPlayer" parent="." unique_id=909977785]
+stream = ExtResource("4_joorw")
+
+[node name="RobloxYaySound" type="AudioStreamPlayer" parent="." unique_id=1100018461]
+stream = ExtResource("5_2vekm")
 
 [node name="VineBoomSound" type="AudioStreamPlayer" parent="." unique_id=29742130]
 stream = ExtResource("4_t88pq")
+
+[node name="AckSound" type="AudioStreamPlayer" parent="." unique_id=701017420]
+stream = ExtResource("7_yx171")
+
+[node name="RobloxCrySound" type="AudioStreamPlayer" parent="." unique_id=2077361640]
+stream = ExtResource("8_yhmtn")
 
 [connection signal="timeout" from="Time" to="." method="_on_time_timeout"]

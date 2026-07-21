@@ -4,9 +4,10 @@ extends Control
 @onready var action_label = $ActionLabel
 @onready var time = $Time
 @onready var start_sound = $FartSound
-@onready var bad_time_sound = $VineBoomSound
-@onready var good_time_sound = $WowSound
+@onready var bad_time_sound = [$VineBoomSound, $RobloxCrySound, $AckSound]
+@onready var good_time_sound = [$AnimeWowSound, $RobloxWowSound, $RobloxYaySound ]
 @onready var game_name_label = $GameNameLabel
+@onready var restart_label = $RestartLabel
 
 
 var reaction_time = 0
@@ -18,6 +19,7 @@ func _ready():
 	action_label.text = "Press [SPACE] to start or react to signal."
 	color_signal.color = Color.RED
 	time.one_shot = true
+	restart_label.visible = false
 
 
 # -- Start and restart game --
@@ -34,12 +36,14 @@ func _process(delta):
 				action_label.text = "Time: " + str(reaction_duration / 1000000.0) + " sec"
 				var reaction_seconds = reaction_duration / 1000000.0
 				if reaction_seconds <= 0.45:
-					good_time_sound.play()
+					good_time_sound[randi() % good_time_sound.size()].play()
+					game_name_label.text = "Wow you are so fast!!"
 				else:
-					bad_time_sound.play()
+					bad_time_sound[randi() % bad_time_sound.size()].play()
+					game_name_label.text = "Too slow..."
 			else:
 				action_label.text = "FALSE START! >:("
-				bad_time_sound.play()
+				bad_time_sound[randi() % bad_time_sound.size()].play()
 				time.stop()
 			game_over()
 
@@ -65,7 +69,8 @@ func restart_game():
 func game_over():
 	game_start = false
 	is_game_over = true
-	game_name_label.text = "Press [SPACE] to restart"
+	restart_label.visible = true
+	restart_label.text = "Press [SPACE] to restart"
 
 # -- Change color signal from default (red) to green --
 func change_color_to_green():
