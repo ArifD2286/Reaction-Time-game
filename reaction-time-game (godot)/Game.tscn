@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://73adjddurq77"]
 
 [ext_resource type="Script" uid="uid://cgy75lwkq3abp" path="res://Game.gd" id="1_wbfu4"]
+[ext_resource type="AudioStream" uid="uid://bhso57lxjstl5" path="res://dry-fart (edited).mp3" id="2_xkndl"]
+[ext_resource type="AudioStream" uid="uid://blid5mk76ly7b" path="res://anime-wow-sound-effect.mp3" id="3_sb48q"]
+[ext_resource type="AudioStream" uid="uid://qn61ei1r4ol" path="res://vine-boom (1).mp3" id="4_t88pq"]
 
 [node name="Control" type="Control" unique_id=1500166762]
 layout_mode = 3
@@ -9,6 +12,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_wbfu4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1977216410]
@@ -17,33 +22,91 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.15294118, 0.15294118, 0.15294118, 1)
 
-[node name="Panel" type="Panel" parent="." unique_id=1559683260]
+[node name="ColorSignal" type="ColorRect" parent="." unique_id=2066756256]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 40.0
 offset_right = 1080.0
 offset_bottom = 608.0
+color = Color(0.75, 0, 0, 1)
+
+[node name="SideCover1" type="ColorRect" parent="." unique_id=1857786668]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 495.0
+offset_right = 237.0
+offset_bottom = 559.0
+rotation = 0.78648514
+color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+
+[node name="SideCover2" type="ColorRect" parent="." unique_id=2064411530]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 192.0
+offset_bottom = 164.0
+rotation = -0.7856057
+color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+
+[node name="SideCover3" type="ColorRect" parent="." unique_id=761336036]
+layout_mode = 0
+offset_left = 971.00024
+offset_top = 630.99976
+offset_right = 1163.0
+offset_bottom = 694.99976
+rotation = -0.78679436
+color = Color(0.15294118, 0.15294118, 0.15294118, 1)
+
+[node name="SideCover4" type="ColorRect" parent="." unique_id=526289108]
+layout_mode = 0
+offset_left = 1017.0001
+offset_top = -36.0
+offset_right = 1209.0
+offset_bottom = 28.0
+rotation = 0.78707767
+color = Color(0.15294118, 0.15294118, 0.15294118, 1)
 
 [node name="GameNameLabel" type="Label" parent="." unique_id=2073909501]
-layout_mode = 0
-offset_left = 461.0
-offset_top = 286.0
-offset_right = 691.0
-offset_bottom = 320.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -38.0
+offset_right = 115.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.9411765, 0.9411765, 0.9411765, 1)
 theme_override_font_sizes/font_size = 24
 text = "Reaction Test Game"
 
 [node name="ActionLabel" type="Label" parent="." unique_id=2128866796]
-layout_mode = 0
-offset_left = 491.0
-offset_top = 320.0
-offset_right = 661.0
-offset_bottom = 343.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -3.5
+offset_right = 85.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Press [SPACE] to start."
+horizontal_alignment = 1
 
 [node name="Time" type="Timer" parent="." unique_id=572737380]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=790093483]
+[node name="FartSound" type="AudioStreamPlayer" parent="." unique_id=1664560495]
+stream = ExtResource("2_xkndl")
+
+[node name="WowSound" type="AudioStreamPlayer" parent="." unique_id=790093483]
+stream = ExtResource("3_sb48q")
+
+[node name="VineBoomSound" type="AudioStreamPlayer" parent="." unique_id=29742130]
+stream = ExtResource("4_t88pq")
 
 [connection signal="timeout" from="Time" to="." method="_on_time_timeout"]

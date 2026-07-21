@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhso57lxjstl5"
+path="res://.godot/imported/dry-fart (edited).mp3-ae67829f265c6b00e5bd34f23d4e3b7c.mp3str"
+
+[deps]
+
+source_file="res://dry-fart (edited).mp3"
+dest_files=["res://.godot/imported/dry-fart (edited).mp3-ae67829f265c6b00e5bd34f23d4e3b7c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
